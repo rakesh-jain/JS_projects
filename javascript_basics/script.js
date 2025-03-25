@@ -42,3 +42,11 @@ btn1.addEventListener("click",()=>{
 btn2.addEventListener("click",()=>{
     paragraph.removeChild(paragraph.lastElementChild);
 });
+
+let btn3 = document.getElementById("btn3");
+
+btn3.addEventListener("click", () => {
+    let count = document.getElementsByTagName('p');
+    alert(`There are ${count.length} paragraph elements on the page`);
+});
+
