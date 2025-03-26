@@ -8,6 +8,9 @@
     <!-- Link to CSS file -->
     <!-- <link rel="stylesheet" href="styles.css"> -->
     <script defer src="script.js"></script> <!-- Added 'defer' to ensure JS loads after HTML -->
+    <script>
+        
+    </script>
 </head>
 
 <body>
@@ -46,6 +49,28 @@
         <button id="btn3">count</button>
     </p>
  </div>
+ <div id="section2">
+ </div>
+ <script>
+    let list ={
+        name :"Rakesh",
+        age :24,
+        city:"bangalore"
+    };
+    let div = document.getElementById('section2');
+    let button  = document.createElement('button');
+    button.textContent = "click for details";
+    div.appendChild(button);
+    button.addEventListener('click',()=>{
+        let ul= document.createElement('ul');
+        for(let key in list){
+            let li = document.createElement('li');
+            li.textContent = `${key} : ${list[key]}`;
+            ul.appendChild(li);
+        }
+        div.appendChild(ul);
+    });
+ </script>
 </body>
 
 </html>
