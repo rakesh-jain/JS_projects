@@ -17,6 +17,8 @@ function Yoga(){
 
     return (
         <div>
+
+
           <h2>india is master of yoga every other nation adopted yoga from the indian master</h2>
           <button onClick={btn}> Twist your Finger</button>
           <button onClick={teachList}>Teacher List</button>
