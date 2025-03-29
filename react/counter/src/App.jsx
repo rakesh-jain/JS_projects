@@ -14,7 +14,7 @@ function App() {
       </header>
       <main>
         <div className="counter-display">
-          <h2>Current Count: {count}</h2>
+          <h2>{count}</h2>
         </div>
         <div className="button-group">
           <button className="btn increase" onClick={() => setCount(count + 1)}>
@@ -22,7 +22,7 @@ function App() {
           </button>
           <button
             className="btn decrease"
-            onClick={() => setCount(count > 0 ? count - 1 : 0)}
+            onClick={() => setCount(count > 0 ? count - 1 : null)}
           >
             Decrease
           </button>

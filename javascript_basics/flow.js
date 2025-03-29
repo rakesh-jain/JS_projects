@@ -265,7 +265,7 @@ const pr3 = new Promise((resolve, reject) => {
     resolve("hello good morning2");
 });
 
-
+//returns which one resolves first promises even if other reject
 Promise.any([pr1, pr2, pr3]).then((message) => {
     console.log(message);
 });
@@ -288,6 +288,7 @@ const perm3 = new Promise((resolve, reject)=> {
     },100);
 });
 
+//returns which one is came first, iif iis reject or resolve - like race
 Promise.race([perm1,perm2,perm3])
 .then((message)=>{console.log(message)})
 .catch

@@ -32,7 +32,7 @@ if(guys.address === undefined){
   console.log("deleted successfully");
   console.log(guys.address);
 }
-console.log(Object.entries(person));
+console.log(Object.entries(person));//gives an array of value like[['foo','bar'],['baz',43]]
 
 //object creation in method named as constuctor function 
 function Student(name , age){
