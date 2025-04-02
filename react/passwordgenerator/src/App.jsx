@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import './App.css';
 
@@ -7,6 +7,8 @@ function App() {
   const [number, setNumber] = useState(false);
   const [characterAllowed, setCharacter] = useState(false);
   const [password, setPassword] = useState("");
+
+  const passwordRef = useRef(null);
 
   const passwordGenerator = useCallback(() => {
     let pass = "";
@@ -34,6 +36,12 @@ function App() {
     setPassword(pass);
   }, [length, number, characterAllowed]);
 
+  const copyPassword= useCallback(()=>{
+    passwordRef.current.classList.add('copied');
+      passwordRef.current?.select(password);
+    window.navigator.clipboard.writeText(password);
+  },[password]);
+
   useEffect(() => {
     passwordGenerator();
   }, [length, number, characterAllowed, passwordGenerator]);
@@ -59,15 +67,16 @@ function App() {
           className="w-full p-3 mb-4 text-lg bg-gray-100 text-gray-800 border-2 border-indigo-500 rounded-lg focus:outline-none"
           placeholder="Generated Password"
           type="text"
+          ref={passwordRef}
           value={password}
           readOnly
         />
         <motion.button
           whileHover={{ scale: 1.1 }}
           className="w-full p-3 mb-4 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
-          onClick={passwordGenerator}
+          onClick={copyPassword}
         >
-          Generate
+          Copy
         </motion.button>
 
         <div className="flex flex-col gap-y-4">
